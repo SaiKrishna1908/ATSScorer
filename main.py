@@ -46,19 +46,24 @@ def copy_cls_files(src_folder, dest_folder):
     print(f"Copied all .cls files from {src_folder} to {dest_folder}")
 
 if __name__ == '__main__':
-    app_config = read_config()
-    print(app_config)
+    app_config = read_config()    
     job_description = read_file(app_config['jobDescription'])
     job = Job(job_description=job_description)
     ats_keywords = job.extract_keywords()    
 
     latex_file_location = app_config['latexPath']
     latex_content = read_file(latex_file_location)
+
+    pdf_file_name = app_config['jobName']
+
+    job_title = app_config['jobTitle']
+
+    prev_job_experience = app_config['previousJobExperience']
     
-    updated_latex = job.include_keywords_in_skills(ats_keywords, latex_content)    
+    updated_latex = job.include_keywords_in_skills(ats_keywords, latex_content, job_title, prev_job_experience)    
     copy_cls_files("./in/base_resume", "out/")
-    write_file('./out/output.tex', updated_latex)
-    convert_tex_to_pdf('./out/output.tex', './out/output.pdf')
+    write_file(f'./out/{pdf_file_name}.tex', updated_latex)
+    convert_tex_to_pdf(f'./out/{pdf_file_name}.tex', f'./out/{pdf_file_name}.pdf')
 
 
     

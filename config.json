@@ -1,5 +1,8 @@
 {
     "jobDescription": "in/jd.txt",
     "latexPath": "in/base_resume/resume.tex",
-    "organization": "1"
+    "organization": "1",
+    "jobName": "output",
+    "jobTitle": "Software Development Engineer",
+    "previousJobExperience": ""
 }

@@ -66,7 +66,7 @@ class SambaNovaCloud:
 
 class MistralModel:
     def __init__(self):        
-        api_key = os.environ["MISTRAL_API_KEY"]           
+        api_key = os.environ["MISTRAL_API_KEY"]                   
         self.model = "pixtral-12b-2409"
         self.client = Mistral(api_key=api_key)
 

@@ -24,29 +24,47 @@ class Job:
             {self.job_description}
         '''
         
-        return self.model.call(prompt)
+        return self.model.call(prompt)    
+        
+    def include_keywords_in_skills(self, ats_keywords, tex_content, job_title, previous_job_experience=''):
+        
+        # if previous_job_experience != '':
+        #     job_experience_prompt = f'''
+        #     I previously worked at {previous_job_experience}. Scrape their website to identify the services and features they developed.
 
-    def extract_skills_section(self):
+        #     - Use the extracted features and services to add relevant, impactful bullet points to my work experience.  
+        #     - Naturally incorporate the provided ATS keywords while ensuring the descriptions align with my role and responsibilities.  
+        #     - Maintain a concise and results-driven format for each bullet point.
+
+        #     '''
+
         prompt = f'''
-            I am going to give you a latex file extract the "Skill" section of the latex code and return it back.
+                I am providing my resume in TeX format. Modify only the Skills and Professional Experience sections while keeping all other sections unchanged.
 
-        '''
-    def include_keywords_in_skills(self, ats_keywords, tex_content):
-        prompt = f'''
-            I am going to provide tex file which is my resume. Include the following keywords which have been 
-            extracted from a job description in the skills section and also add appropriate points in my 
-            Professional Experience Section. Feel free to include new sub sections if necessary in "Skills". 
-            Update my tex file. Keep my other sections as it is just change my "Skills" and "Professional Experience" sections
+                Skills Section:
 
-            ATS Keywords that are needed to make changes in Skills and Professional Experience:
+                Incorporate the provided ATS keywords naturally into this section.
+                Feel free to introduce new subsections if necessary to categorize the skills effectively.
 
-            {ats_keywords}
 
-            My Resume in Tex
+                Professional Experience Section:
 
-            {tex_content}
+                Update this section by adding relevant bullet points that demonstrate my experience with the given ATS keywords.
+                Ensure that the modifications align with my previous roles and responsibilities while making them more relevant to the target job.
+                
+                Rewrite or refine existing bullet points where necessary to improve clarity and impact.                
+                
+                Job Title Update:
 
-            Give complete tex file and don't include intro convo
-        '''
+                Change my current job title to {job_title} wherever applicable.
+
+                ATS Keywords: {ats_keywords}
+
+                My Tex Content: {tex_content}
+            
+                Output Instructions:
+                - Do NOT include any introduction, explanation, or summary in your response.  
+                - ONLY return the complete updated TeX file.
+            '''
 
         return self.model.call(prompt)    
