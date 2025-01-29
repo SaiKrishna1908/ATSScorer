@@ -1,5 +1,5 @@
 {
-    "jobDescription": "inputs/jd.txt",
-    "latexPath": "inputs/resume.tex",
+    "jobDescription": "in/jd.txt",
+    "latexPath": "in/base_resume/resume.tex",
     "organization": "1"
 }

@@ -1,1 +1,7 @@
 mistralai
+pdflatex
+huggingface_hub
+together
+minijinja
+openai
+shutil
