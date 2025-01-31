@@ -5,3 +5,4 @@ together
 minijinja
 openai
 shutil
+google-generativeai
