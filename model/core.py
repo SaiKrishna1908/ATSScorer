@@ -90,7 +90,7 @@ class MistralModel:
 
 class GeminiModel:
     def __init__(self):
-        api_key = os.environ["GEMINI_API_KEY"]
+        api_key = os.environ["GEMINI_API_KEY"]        
         genai.configure(api_key=api_key)
     
     def call(self, content):

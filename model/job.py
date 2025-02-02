@@ -1,4 +1,3 @@
-
 from model.core import DeepSeek, GeminiModel, MistralModel, SambaNovaCloud
 
 
@@ -15,7 +14,7 @@ class Job:
             self.model = SambaNovaCloud()
 
     def extract_keywords(self):
-        json_struct = "\{ \"skills:\" [\"skill1\", \"skill2\", \"skill3\"] \}"
+        json_struct = "\{ \"skills:\" [\"skill1 \", \"skill2\", \"skill3\"] \}"
         prompt = f'''
             Extract ATS keywords for this job description, give the response in below json format
 
@@ -68,6 +67,8 @@ class Job:
                 Output Instructions:
                 - Do NOT include any introduction, explanation, or summary in your response.  
                 - ONLY return the complete updated TeX file.
+                - replace "&" with "\&"       
+                - emphasize important keywords with {{\bf <keyword>}} example {{\bf springboot}}
             '''
 
         return self.model.call(prompt)    
