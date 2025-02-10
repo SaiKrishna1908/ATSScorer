@@ -2,7 +2,7 @@
     "jobDescription": "in/jd.txt",
     "latexPath": "in/base_resume/resume.tex",
     "organization": "1",
-    "jobName": "john_fullstack_developer_resume",
-    "jobTitle": "fullstack engineer",
-    "previousJobExperience": ""
+    "jobName": "Software_Engineer",
+    "jobTitle": "Software Engineer",
+    "previousJobExperience": "in/prevjob.txt"
 }

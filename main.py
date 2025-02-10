@@ -58,9 +58,11 @@ if __name__ == '__main__':
 
     job_title = app_config['jobTitle']
 
-    prev_job_experience = app_config['previousJobExperience']
+    prev_job_experience_file_path = app_config['previousJobExperience']
+    prev_job_experience = read_file(prev_job_experience_file_path)
     
     updated_latex = job.include_keywords_in_skills(ats_keywords, latex_content, job_title, prev_job_experience)    
+    updated_latex = job.include_skills_in_professional_experience(ats_keywords, updated_latex, prev_job_experience)
     copy_cls_files("./in/base_resume", "out/")
     write_file(f'./out/{pdf_file_name}.tex', updated_latex)
     convert_tex_to_pdf(f'./out/{pdf_file_name}.tex', f'./out/{pdf_file_name}.pdf')

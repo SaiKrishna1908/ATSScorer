@@ -85,18 +85,18 @@ class MistralModel:
         )
         response = chat_response.choices[0].message.content
         response = response.replace('```tex', '')
-        response = response.replace('```','')        
+        response = response.replace('```','')       
         return response
 
 class GeminiModel:
     def __init__(self):
-        api_key = os.environ["GEMINI_API_KEY"]        
+        api_key = os.environ["GEMINI_API_KEY"]
         genai.configure(api_key=api_key)
     
     def call(self, content):
         model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(content).text        
+        response = model.generate_content(content).text
         response = response.replace('```latex', '')
-        response = response.replace('```','')        
+        response = response.replace('```','')
         return response
 
