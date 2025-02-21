@@ -1,3 +1,9 @@
+# Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
 # Install MiKTex
 
 ```
@@ -38,3 +44,17 @@ python ./main.py
 # Out Folder
 
 your updated pdf file is present in the out folder along with the updated tex file
+
+# Update resume based on your past organization features
+
+If you have experience working in a B2C organization, this script allows you to highlight the features you contributed to, while automatically generating relevant technology stacks based on those features.
+
+#### Example:
+
+If your previous organization focused on educational technology, your work experience might include key features such as:
+
+- **Live Virtual Classrooms**: Facilitated real-time interaction between educators and students using technologies like WebRTC for video conferencing, integrated with a web application framework such as React or Angular.  
+- **Learning Management System (LMS)**: Developed and maintained an LMS to organize, deliver, and assess educational courses. Backend development was implemented using Django or Node.js, while frontend development leveraged React or Angular.  
+- **Microlearning Programs**: Designed and implemented microlearning modules for improved knowledge retention, using modular content delivery systems with databases like MongoDB for content storage.  
+
+This approach ensures that your resume aligns with industry-standard keywords and technical terminology, improving its ATS compatibility.
